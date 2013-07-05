@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pref_update_setting" >
+        <ListPreference
+            android:entries="@array/puzzleDifficulty"
+            android:entryValues="@array/puzzleDifficultyValues"
+            android:key="prefPuzzleDifficulty"
+            android:summary="@string/pref_puzzle_difficulty_summary"
+            android:title="@string/pref_puzzle_difficulty" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,28 @@
+<resources>
+
+    <string-array name="puzzleDifficulty">
+        <item name="1">Level 1</item>
+        <item name="2">Level 2</item>
+        <item name="3">Level 3</item>
+        <item name="4">Level 4</item>
+        <item name="5">Level 5</item>
+        <item name="6">Level 6</item>
+        <item name="7">Level 7</item>
+        <item name="8">Level 8</item>
+        <item name="9">Level 9</item>
+        <item name="10">Level 10</item>
+    </string-array>
+    <string-array name="puzzleDifficultyValues">
+        <item name="1">1</item>
+        <item name="2">2</item>
+        <item name="3">3</item>
+        <item name="4">4</item>
+        <item name="5">5</item>
+        <item name="6">6</item>
+        <item name="7">7</item>
+        <item name="8">8</item>
+        <item name="9">9</item>
+        <item name="10">10</item>
+    </string-array>
+
+</resources>
