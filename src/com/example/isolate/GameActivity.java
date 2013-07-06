@@ -47,9 +47,6 @@ public class GameActivity extends Activity implements gameListener {
 		SharedPreferences sharedPrefs = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		level = (String) sharedPrefs.getString("prefPuzzleDifficulty", "NULL");
-		Log.d("ISOLATE",
-				"Preferences Set !!" + level.toString()
-						+ sharedPrefs.getString("prefPuzzleDifficulty", "NULL"));
 		// level = Integer.parseInt(level.toString());
 		Log.d("ISOLATE", "Preferences Set !!" + level);
 
@@ -161,6 +158,10 @@ public class GameActivity extends Activity implements gameListener {
 			Log.d(TAG, "Settings");
 			Intent settingsIntent = new Intent(this, UserSettingActivity.class);
 			startActivityForResult(settingsIntent, RESULT_SETTINGS);
+			break;
+		case R.id.item1:
+			break;
+		case R.id.item2:
 			break;
 		}
 		return true;
