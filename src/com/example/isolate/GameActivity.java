@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.app.DialogFragment;
 import android.util.Log;
 import android.view.Gravity;
@@ -29,7 +30,7 @@ public class GameActivity extends Activity implements gameListener {
 	private static ProgressDialog dialog;
 	public static Game game;
 	public static GameView gameView;
-	public static String level;
+	public static String level = "5";
 	private static Handler threadHandler = new Handler() {
 		public void handleMessage(Message msg) {
 			gameView.invalidate();
@@ -47,8 +48,11 @@ public class GameActivity extends Activity implements gameListener {
 		SharedPreferences sharedPrefs = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		level = (String) sharedPrefs.getString("prefPuzzleDifficulty", "NULL");
-		// level = Integer.parseInt(level.toString());
 		Log.d("ISOLATE", "Preferences Set !!" + level);
+		/*
+		 * Editor editor = sharedPrefs.edit();
+		 * editor.putString("prefPuzzleDifficulty", "4"); editor.commit();
+		 */
 
 		game = new Game();
 		game.registerListener(this);
@@ -67,18 +71,19 @@ public class GameActivity extends Activity implements gameListener {
 		TextView tv = (TextView) findViewById(R.id.level);
 		tv.setText("Difficulty Level = " + level + " (max 10)");
 	}
-	
+
 	// make a Toast that we can position more prominently
 	private void makeToast(String msg) {
-	    Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
-	    toast.setGravity(Gravity.TOP, 0, 100);     // x offset , y offset
-	    toast.show();
+		Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+		toast.setGravity(Gravity.TOP, 0, 100); // x offset , y offset
+		toast.show();
 	}
 
 	@Override
 	public void onPuzzleCompleted() {
 		// showDialog();
-		//Toast.makeText(this, "Puzzle Completed ..", Toast.LENGTH_LONG).show();
+		// Toast.makeText(this, "Puzzle Completed ..",
+		// Toast.LENGTH_LONG).show();
 		makeToast("Puzzle Completed ..");
 	}
 
@@ -160,8 +165,10 @@ public class GameActivity extends Activity implements gameListener {
 			startActivityForResult(settingsIntent, RESULT_SETTINGS);
 			break;
 		case R.id.item1:
+			//level = level + 1;
 			break;
 		case R.id.item2:
+			//level = level - 1;
 			break;
 		}
 		return true;

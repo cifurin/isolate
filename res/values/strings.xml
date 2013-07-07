@@ -5,7 +5,7 @@
     <string name="welcome">Welcome to Isolate</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_main">ISOLATE</string>
+    <string name="title_activity_main">Isolate</string>
     <string name="btn_newgame">New Game</string>
     <string name="btn_exit">Exit</string>
     <string name="btn_level">Change Level</string>
