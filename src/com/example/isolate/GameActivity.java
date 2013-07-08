@@ -116,7 +116,7 @@ public class GameActivity extends Activity implements gameListener {
 					game.solve(1, 1, threadHandler);
 				} catch (Exception e) {
 					System.out
-							.println("Somebody Interrupted the Solution Thread");
+							.println("Solution Thread Interrupted");
 					e.printStackTrace();
 				}
 				threadHandler.sendEmptyMessage(0);
@@ -144,8 +144,8 @@ public class GameActivity extends Activity implements gameListener {
 					sleep(10000);
 				} catch (Exception e) {
 					System.out
-							.println("Somebody Interrupted the Timeout Thread");
-					e.printStackTrace();
+							.println("Timeout Thread Interrupted");
+					//e.printStackTrace();
 				}
 				solver.interrupt();
 			}

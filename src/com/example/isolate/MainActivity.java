@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
@@ -23,6 +24,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		newGame.setOnClickListener(this);
 		level.setOnClickListener(this);
 		exit.setOnClickListener(this);
+		ImageView image = (ImageView) findViewById(R.id.imageView1);
 	}
 
 	@Override
