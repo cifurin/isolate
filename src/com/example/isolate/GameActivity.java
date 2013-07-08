@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.RelativeLayout;
@@ -49,10 +50,6 @@ public class GameActivity extends Activity implements gameListener {
 				.getDefaultSharedPreferences(this);
 		level = (String) sharedPrefs.getString("prefPuzzleDifficulty", "NULL");
 		Log.d("ISOLATE", "Preferences Set !!" + level);
-		/*
-		 * Editor editor = sharedPrefs.edit();
-		 * editor.putString("prefPuzzleDifficulty", "4"); editor.commit();
-		 */
 
 		game = new Game();
 		game.registerListener(this);
@@ -69,13 +66,22 @@ public class GameActivity extends Activity implements gameListener {
 		setContentView(myLayout);
 
 		TextView tv = (TextView) findViewById(R.id.level);
-		tv.setText("Difficulty Level = " + level + " (max 10)");
+		tv.setText("Difficulty Level = " + level);
+
+		Button btn = (Button) findViewById(R.id.button1);
+		btn.setOnLongClickListener(new OnLongClickListener() {
+			public boolean onLongClick(View v) {
+				Log.d("ISOLATE", "Long Click Detected");
+				return true;
+			}
+		});
+
 	}
 
 	// make a Toast that we can position more prominently
 	private void makeToast(String msg) {
 		Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
-		toast.setGravity(Gravity.TOP, 0, 100); // x offset , y offset
+		toast.setGravity(Gravity.CENTER, 0, 100); // x offset , y offset
 		toast.show();
 	}
 
@@ -142,7 +148,7 @@ public class GameActivity extends Activity implements gameListener {
 
 	public void NewPuzzleOnClick(View v) {
 		TextView tv = (TextView) findViewById(R.id.level);
-		tv.setText("Difficulty Level = " + level + " (max 10)");
+		tv.setText("Difficulty Level = " + level);
 		game.newGame(Integer.parseInt(level.toString()));
 		gameView.invalidate();
 	}
@@ -157,7 +163,7 @@ public class GameActivity extends Activity implements gameListener {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Log.d(TAG, "onOptionsItemSelected" + item.getTitle());
+		Log.d(TAG, "onOptionsItemSelected  " + item.getTitle());
 		switch (item.getItemId()) {
 		case R.id.action_settings:
 			Log.d(TAG, "Settings");
@@ -165,10 +171,27 @@ public class GameActivity extends Activity implements gameListener {
 			startActivityForResult(settingsIntent, RESULT_SETTINGS);
 			break;
 		case R.id.item1:
-			//level = level + 1;
+			// increase difficulty level
+			if (Integer.parseInt(level) < 10) {
+				level = Integer.toString(Integer.parseInt(level) + 1);
+				SharedPreferences sharedPrefs = PreferenceManager
+						.getDefaultSharedPreferences(this);
+				Editor editor = sharedPrefs.edit();
+				editor.putString("prefPuzzleDifficulty", level).commit();
+				NewPuzzleOnClick(gameView);
+			}
+
 			break;
 		case R.id.item2:
-			//level = level - 1;
+			// decrease difficulty level
+			if (Integer.parseInt(level) > 1) {
+				level = Integer.toString(Integer.parseInt(level) - 1);
+				SharedPreferences sharedPrefs = PreferenceManager
+						.getDefaultSharedPreferences(this);
+				Editor editor = sharedPrefs.edit();
+				editor.putString("prefPuzzleDifficulty", level).commit();
+				NewPuzzleOnClick(gameView);
+			}
 			break;
 		}
 		return true;
