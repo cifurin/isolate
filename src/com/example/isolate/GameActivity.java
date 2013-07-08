@@ -64,6 +64,7 @@ public class GameActivity extends Activity implements gameListener {
 		myLayout.addView(gameView);
 		myLayout.addView(v);
 		setContentView(myLayout);
+		// setContentView(R.layout.activity_menu);
 
 		TextView tv = (TextView) findViewById(R.id.level);
 		tv.setText("Difficulty Level = " + level);
@@ -80,7 +81,7 @@ public class GameActivity extends Activity implements gameListener {
 
 	// make a Toast that we can position more prominently
 	private void makeToast(String msg) {
-		Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+		Toast toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
 		toast.setGravity(Gravity.CENTER, 0, 100); // x offset , y offset
 		toast.show();
 	}
@@ -102,8 +103,8 @@ public class GameActivity extends Activity implements gameListener {
 		game.reset();
 		gameView.invalidate();
 
-		dialog = ProgressDialog.show(this, "APP has 10 seconds to solve",
-				"trying .. please wait");
+		dialog = ProgressDialog
+				.show(this, "", "trying to solve .. please wait");
 
 		solver = new Thread() {
 			@Override
@@ -119,11 +120,19 @@ public class GameActivity extends Activity implements gameListener {
 					e.printStackTrace();
 				}
 				threadHandler.sendEmptyMessage(0);
-				runOnUiThread(new Runnable() {
-					public void run() {
-						makeToast("Puzzle Solved by Computer ..");
-					}
-				});
+				if (game.isComplete()) {
+					runOnUiThread(new Runnable() {
+						public void run() {
+							makeToast("Puzzle Solved by Computer ..");
+						}
+					});
+				}else{
+					runOnUiThread(new Runnable() {
+						public void run() {
+							makeToast("Puzzle unsolved .. please try again");
+						}
+					});
+				}
 				timer.interrupt();
 			}
 		};

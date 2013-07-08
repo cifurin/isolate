@@ -30,7 +30,6 @@ public class GameView extends View {
 		public WallPosition(float left, float top, float right, float bottom) {
 			super(left, top, right, bottom);
 		}
-
 		private int x;
 		private int y;
 	}
@@ -179,12 +178,7 @@ public class GameView extends View {
 				s = s + " " + "." + " " + String.valueOf(S[x - 1]);
 			}
 		}
-		canvas.drawText(s, getWidth() / 2, 7.5f * scaley, paint);
-
-/*		if (game.isComplete()) {
-			canvas.drawText("Puzzle has been solved", getWidth() / 2,
-					8.5f * scaley, paint);
-		}*/
+		canvas.drawText(s, getWidth() / 2, 6.5f * scaley, paint);
 	}
 
 	@Override
