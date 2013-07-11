@@ -94,12 +94,12 @@ public class GameActivity extends Activity implements gameListener {
 		makeToast("Puzzle Completed ..");
 	}
 
-	public void ResetOnClick(View v) {
+	public void resetOnClick(View v) {
 		game.reset();
 		gameView.invalidate();
 	}
 
-	public void SolveOnClick(View v) {
+	public void solveOnClick(View v) {
 		game.reset();
 		gameView.invalidate();
 
@@ -155,7 +155,7 @@ public class GameActivity extends Activity implements gameListener {
 		timer.start();
 	}
 
-	public void NewPuzzleOnClick(View v) {
+	public void newPuzzleOnClick(View v) {
 		TextView tv = (TextView) findViewById(R.id.level);
 		tv.setText("Difficulty Level = " + level);
 		game.newGame(Integer.parseInt(level.toString()));
@@ -187,7 +187,7 @@ public class GameActivity extends Activity implements gameListener {
 						.getDefaultSharedPreferences(this);
 				Editor editor = sharedPrefs.edit();
 				editor.putString("prefPuzzleDifficulty", level).commit();
-				NewPuzzleOnClick(gameView);
+				newPuzzleOnClick(gameView);
 			}
 
 			break;
@@ -199,7 +199,7 @@ public class GameActivity extends Activity implements gameListener {
 						.getDefaultSharedPreferences(this);
 				Editor editor = sharedPrefs.edit();
 				editor.putString("prefPuzzleDifficulty", level).commit();
-				NewPuzzleOnClick(gameView);
+				newPuzzleOnClick(gameView);
 			}
 			break;
 		}
@@ -225,4 +225,5 @@ public class GameActivity extends Activity implements gameListener {
 		DialogFragment newFragment = new ConfirmDialog();
 		newFragment.show(getFragmentManager(), "dialog");
 	}
+	
 }
