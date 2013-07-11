@@ -72,21 +72,25 @@ public class PuzzleChecker {
 	private void findgroups(int x, int y) {
 		if (g[x] == 0) {
 			g[x] = group;
+			// MOVE RIGHT ?
 			if (valid(x + 1, y) && !((x % 5) == 0)) {
 				if ((Wall[x][x + 1] == 0) || (Wall[x][x + 1] == 2)) {
 					findgroups(x + 1, x);
 				}
 			}
+			// MOVE UP ?
 			if (valid(x + 5, y)) {
 				if ((Wall[x][x + 5] == 0) || (Wall[x][x + 5] == 2)) {
 					findgroups(x + 5, x);
 				}
 			}
+			// MOVE LEFT ?
 			if (valid(x - 1, y) && !(((x - 1) % 5) == 0)) {
 				if ((Wall[x - 1][x] == 0) || (Wall[x - 1][x] == 2)) {
 					findgroups(x - 1, x);
 				}
 			}
+			// MOVE DOWN ?
 			if (valid(x - 5, y)) {
 				if ((Wall[x - 5][x] == 0) || (Wall[x - 5][x] == 2)) {
 					findgroups(x - 5, x);
