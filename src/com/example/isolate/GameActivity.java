@@ -46,9 +46,10 @@ public class GameActivity extends Activity implements gameListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SharedPreferences sharedPrefs = PreferenceManager
-				.getDefaultSharedPreferences(this);
-		level = (String) sharedPrefs.getString("prefPuzzleDifficulty", "NULL");
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+		if (sharedPrefs.contains("prefPuzzleDifficulty")){
+			level = (String) sharedPrefs.getString("prefPuzzleDifficulty", "NULL");
+		}
 		Log.d("ISOLATE", "Preferences Set !!" + level);
 
 		game = new Game();
@@ -115,8 +116,7 @@ public class GameActivity extends Activity implements gameListener {
 					Thread.sleep(100);
 					game.solve(1, 1, threadHandler);
 				} catch (Exception e) {
-					System.out
-							.println("Solution Thread Interrupted");
+					System.out.println("Solution Thread Interrupted");
 					e.printStackTrace();
 				}
 				threadHandler.sendEmptyMessage(0);
@@ -126,7 +126,7 @@ public class GameActivity extends Activity implements gameListener {
 							makeToast("Puzzle Solved by Computer ..");
 						}
 					});
-				}else{
+				} else {
 					runOnUiThread(new Runnable() {
 						public void run() {
 							makeToast("Puzzle unsolved .. please try again");
@@ -143,9 +143,8 @@ public class GameActivity extends Activity implements gameListener {
 				try {
 					sleep(10000);
 				} catch (Exception e) {
-					System.out
-							.println("Timeout Thread Interrupted");
-					//e.printStackTrace();
+					System.out.println("Timeout Thread Interrupted");
+					// e.printStackTrace();
 				}
 				solver.interrupt();
 			}
@@ -225,5 +224,5 @@ public class GameActivity extends Activity implements gameListener {
 		DialogFragment newFragment = new ConfirmDialog();
 		newFragment.show(getFragmentManager(), "dialog");
 	}
-	
+
 }
