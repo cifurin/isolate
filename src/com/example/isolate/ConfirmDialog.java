@@ -10,7 +10,7 @@ public class ConfirmDialog extends DialogFragment {
 	public AlertDialog onCreateDialog(Bundle savedInstanceState) {
 		// Use the Builder class for convenient dialog construction
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		builder.setMessage("Congratulations !! Click Yes for another game?")
+		builder.setMessage("Congratulation !! Click Yes for another game?")
 				.setPositiveButton("Yes.",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
