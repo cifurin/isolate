@@ -7,13 +7,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/welcome" />
-
 <!--     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="fill_parent"
@@ -22,27 +15,38 @@
         android:src="@drawable/isolate" /> -->
 
     <Button
-        android:id="@+id/bNew"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView1"
-        android:layout_centerInParent="true"
-        android:text="@string/btn_newgame" />
-
-    <Button
         android:id="@+id/bLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bNew"
-        android:layout_centerInParent="true"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_centerVertical="true"
         android:text="@string/btn_level" />
+
+    <Button
+        android:id="@+id/bNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bLevel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:text="@string/btn_newgame" />
 
     <Button
         android:id="@+id/bExit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bLevel"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/bLevel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
         android:text="@string/btn_exit" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bNew"
+        android:layout_alignLeft="@+id/bNew"
+        android:layout_marginBottom="37dp"
+        android:text="@string/welcome" />
 
 </RelativeLayout>
