@@ -28,7 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/bLevel"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
         android:text="@string/btn_newgame" />
 
     <Button
@@ -37,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/bLevel"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
         android:text="@string/btn_exit" />
 
     <TextView
@@ -46,7 +44,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/bNew"
         android:layout_alignLeft="@+id/bNew"
-        android:layout_marginBottom="37dp"
         android:text="@string/welcome" />
 
 </RelativeLayout>
