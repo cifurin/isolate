@@ -61,7 +61,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.bLevel:
 			startActivity(new Intent(this, UserSettingActivity.class));
 			break;
-		case R.id.bLevel:
+		case R.id.bInstructions:
 			break;
 		case R.id.bExit:
 			finish();

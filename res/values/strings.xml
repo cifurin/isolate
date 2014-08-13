@@ -9,6 +9,7 @@
     <string name="btn_newgame">New Game</string>
     <string name="btn_exit">Exit</string>
     <string name="btn_level">Change Level</string>
+    <string name="btn_Instructions">Instructions</string>
     <string name="pref_puzzle_difficulty_summary">Choose difficulty level</string>
     <string name="pref_puzzle_difficulty">Puzzle Difficulty</string>
     <string name="pref_update_setting">Update Settings</string>
