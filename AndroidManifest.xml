@@ -43,6 +43,9 @@
             android:name="com.example.isolate.UserSettingActivity"
             android:label="@string/title_activity_main" >
         </activity>
-        <activity android:name="com.example.isolate.InstructionsActivity"></activity>
+        <activity 
+            android:name="com.example.isolate.InstructionsActivity"
+            android:label="@string/title_activity_instructions">
+        </activity>
     </application>
 </manifest>

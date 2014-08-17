@@ -6,6 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">Isolate</string>
+    <string name="title_activity_instructions">Isolate Instructions</string>
     <string name="btn_newgame">New Game</string>
     <string name="btn_exit">Exit</string>
     <string name="btn_level">Change Level</string>
@@ -13,5 +14,6 @@
     <string name="pref_puzzle_difficulty_summary">Choose difficulty level</string>
     <string name="pref_puzzle_difficulty">Puzzle Difficulty</string>
     <string name="pref_update_setting">Update Settings</string>
+    <string name="instructions">These are the instructions !!</string>
 
 </resources>

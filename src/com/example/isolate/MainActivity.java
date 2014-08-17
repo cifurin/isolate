@@ -20,9 +20,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 		Button newGame = (Button) findViewById(R.id.bNew);
 		Button level = (Button) findViewById(R.id.bLevel);
+		Button instructions = (Button) findViewById(R.id.bInstructions);
 		Button exit = (Button) findViewById(R.id.bExit);
 		newGame.setOnClickListener(this);
 		level.setOnClickListener(this);
+		instructions.setOnClickListener(this);
 		exit.setOnClickListener(this);
 		//ImageView image = (ImageView) findViewById(R.id.imageView1);
 	}
@@ -62,6 +64,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(new Intent(this, UserSettingActivity.class));
 			break;
 		case R.id.bInstructions:
+			Log.d("ISOLATE", "selected instructions");
+			startActivity(new Intent(this, InstructionsActivity.class));
 			break;
 		case R.id.bExit:
 			finish();

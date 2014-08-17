@@ -2,6 +2,7 @@ package com.example.isolate;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class InstructionsActivity extends Activity {
 
@@ -10,7 +11,8 @@ public class InstructionsActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	
-	    // TODO Auto-generated method stub
+	    setContentView(R.layout.activity_instructions);
+	    Log.d("ISOLATE", "Layout??");
 	}
 
 }
